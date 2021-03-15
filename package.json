@@ -1,8 +1,8 @@
 {
   "name": "@dksheffield/common-lambda-helpers",
-  "version": "1.0.2",
+  "version": "1.0.11",
   "description": "Common things needed across typescript lambda functions",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "tsc -w"

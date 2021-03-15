@@ -1,7 +1,7 @@
-import { consoleLog } from './utils/consoleLog'
-import { LambdaReturn } from './interfaces/lambda-return.interface'
+export {
+  consoleLog
+} from './utils/consoleLog'
 
 export {
-  consoleLog,
   LambdaReturn,
-}
+} from './interfaces/lambda-return.interface'
