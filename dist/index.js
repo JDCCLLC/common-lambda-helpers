@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.consoleLog = void 0;
-var consoleLog_1 = require("./utils/consoleLog");
-Object.defineProperty(exports, "consoleLog", { enumerable: true, get: function () { return consoleLog_1.consoleLog; } });
+exports.Random = exports.ConsoleLog = void 0;
+/** Modules to Export */
+var console_log_module_1 = require("./console-log-module/console-log.module");
+Object.defineProperty(exports, "ConsoleLog", { enumerable: true, get: function () { return console_log_module_1.ConsoleLog; } });
+var randomness_module_1 = require("./randomness-module/randomness.module");
+Object.defineProperty(exports, "Random", { enumerable: true, get: function () { return randomness_module_1.Random; } });
 //# sourceMappingURL=index.js.map
