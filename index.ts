@@ -1,5 +1,9 @@
 /** Modules to Export */
 export {
+  AwsSdkHelper
+} from './aws-sdk-module/aws-sdk.module'
+
+export {
   ConsoleLog
 } from './console-log-module/console-log.module'
 

@@ -5,11 +5,13 @@ var ConsoleLog;
 (function (ConsoleLog) {
     function logObj(text, obj, logAsJson = true) {
         console.log(`${text}: `);
-        if (logAsJson) {
-            console.log(JSON.stringify(obj, null, 2));
+        try {
+            let objAsJson = JSON.stringify(obj, null, 2);
+            console.log(objAsJson);
         }
-        else {
+        catch (err) {
             console.log(obj);
+            console.log(`could not JSON.stringify object: ${text}`);
         }
     }
     ConsoleLog.logObj = logObj;

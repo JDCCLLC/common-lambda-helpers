@@ -5,10 +5,12 @@ export module ConsoleLog {
     logAsJson: boolean = true
   ): void {
     console.log(`${text}: `)
-    if (logAsJson) {
-      console.log(JSON.stringify(obj,null,2))
-    } else {
+    try {
+      let objAsJson = JSON.stringify(obj,null,2)
+      console.log(objAsJson)
+    } catch(err) {
       console.log(obj)
+      console.log(`could not JSON.stringify object: ${text}`)
     }
   }
 }
