@@ -1,8 +1,14 @@
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3'
+import { GetSecretValueCommand, SecretsManagerClient } from '@aws-sdk/client-secrets-manager'
+import { ConsoleLog } from '../console-log-module/console-log.module'
 
 interface getJsonFromS3Input {
   bucketName: string,
   key: string,
+}
+
+interface getJsonFromSecretInput {
+  secretId: string,
 }
 
 export module AwsSdkHelper {
@@ -46,5 +52,27 @@ export module AwsSdkHelper {
         reject(`i dont know how to read this from s3 yet`)
       }
     })
+  }
+
+  /** Get secret from AWS Secrets Manager and convert SecretString to JSON */
+  export async function getJsonFromSecret(props: getJsonFromSecretInput): Promise<any> {
+    let smClient = new SecretsManagerClient({})
+    let secretResp = await smClient.send(new GetSecretValueCommand({
+      SecretId: props.secretId
+    }))
+    return new Promise(function(resolve, reject) {
+      if (secretResp.SecretString) {
+        try {
+          let ssAsObj = JSON.parse(secretResp.SecretString)
+          resolve(ssAsObj)
+        } catch(err) {
+          ConsoleLog.logObj(`unable to PRASE secret as JSON`, err)
+          reject(err)
+        }
+      } else {
+        reject(`unable to get secret value from aws sdk`)
+      }
+    })
+    
   }
 }
