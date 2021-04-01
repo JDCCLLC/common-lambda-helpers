@@ -8,6 +8,10 @@ export {
 } from './console-log-module/console-log.module'
 
 export {
+  DateHelper
+} from './date-helper-module/date-helper.module'
+
+export {
   Random
 } from './randomness-module/randomness.module'
 
