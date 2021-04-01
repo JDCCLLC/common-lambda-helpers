@@ -2,4 +2,7 @@
 Common Lambda helpers across most of my typescript projects
 
 ## npm stuff
- * npm publish --access public
+```bash
+npm version minor
+npm publish --access public
+```
