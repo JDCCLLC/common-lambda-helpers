@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.assumeThisRole = void 0;
 const client_sts_1 = require("@aws-sdk/client-sts");
-const console_log_module_1 = require("../../console-log-module/console-log.module");
 async function assumeThisRole(roleArn, awsRegion) {
     if (awsRegion == undefined) {
         awsRegion = 'us-east-1';
@@ -14,7 +13,7 @@ async function assumeThisRole(roleArn, awsRegion) {
         DurationSeconds: 900,
         RoleSessionName: `TempScriptAssumeRole`
     }));
-    console_log_module_1.ConsoleLog.logObj(`stsResp`, stsResp);
+    // ConsoleLog.logObj(`stsResp`, stsResp)
     if (stsResp.Credentials) {
         process.env.AWS_ACCESS_KEY_ID = stsResp.Credentials.AccessKeyId;
         process.env.AWS_SECRET_ACCESS_KEY = stsResp.Credentials.SecretAccessKey;

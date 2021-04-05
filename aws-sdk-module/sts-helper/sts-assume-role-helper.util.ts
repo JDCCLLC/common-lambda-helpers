@@ -19,7 +19,7 @@ export async function assumeThisRole(roleArn: string, awsRegion?: string): Promi
     DurationSeconds: 900,
     RoleSessionName: `TempScriptAssumeRole`
   }))
-  ConsoleLog.logObj(`stsResp`, stsResp)
+  // ConsoleLog.logObj(`stsResp`, stsResp)
   if (stsResp.Credentials) {
     process.env.AWS_ACCESS_KEY_ID = stsResp.Credentials.AccessKeyId
     process.env.AWS_SECRET_ACCESS_KEY = stsResp.Credentials.SecretAccessKey
