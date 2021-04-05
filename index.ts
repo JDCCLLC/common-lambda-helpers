@@ -20,3 +20,9 @@ export {
 export {
   LambdaReturn,
 } from './interfaces/lambda-return.interface'
+
+/** Utilities / helpers to export */
+export {
+  AssumeRoleOutput,
+  assumeThisRole
+} from './aws-sdk-module/sts-helper/sts-assume-role-helper.util'
