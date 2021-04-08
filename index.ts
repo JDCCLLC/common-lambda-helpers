@@ -1,28 +1,14 @@
-/** Modules to Export */
-export {
-  AwsSdkHelper
-} from './aws-sdk-module/aws-sdk.module'
-
-export {
-  ConsoleLog
-} from './console-log-module/console-log.module'
-
-export {
-  DateHelper
-} from './date-helper-module/date-helper.module'
-
-export {
-  Random
-} from './randomness-module/randomness.module'
-
+/** Helpers / Psudo Modules */
+export * as ConsoleLog from './console-log-helper/console-log.exports'
+export * as DateHelper from './date-time-helper/date-time-helper.exports'
+export * as Random from './randomness-helper/randomness.exports'
+export * as S3Helper from './aws-sdk-helpers/s3-helper/s3-helper.exports'
+export * as SecretsManagerHelper from './aws-sdk-helpers/secretsmanager-helper/secretsmanager.exports'
+export * as StsHelper from './aws-sdk-helpers/sts-helper/sts.exports'
 
 /** Interfaces to Export */
 export {
   LambdaReturn,
 } from './interfaces/lambda-return.interface'
 
-/** Utilities / helpers to export */
-export {
-  AssumeRoleOutput,
-  assumeThisRole
-} from './aws-sdk-module/sts-helper/sts-assume-role-helper.util'
+

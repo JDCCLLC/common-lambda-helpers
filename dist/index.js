@@ -1,16 +1,30 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.assumeThisRole = exports.Random = exports.DateHelper = exports.ConsoleLog = exports.AwsSdkHelper = void 0;
-/** Modules to Export */
-var aws_sdk_module_1 = require("./aws-sdk-module/aws-sdk.module");
-Object.defineProperty(exports, "AwsSdkHelper", { enumerable: true, get: function () { return aws_sdk_module_1.AwsSdkHelper; } });
-var console_log_module_1 = require("./console-log-module/console-log.module");
-Object.defineProperty(exports, "ConsoleLog", { enumerable: true, get: function () { return console_log_module_1.ConsoleLog; } });
-var date_helper_module_1 = require("./date-helper-module/date-helper.module");
-Object.defineProperty(exports, "DateHelper", { enumerable: true, get: function () { return date_helper_module_1.DateHelper; } });
-var randomness_module_1 = require("./randomness-module/randomness.module");
-Object.defineProperty(exports, "Random", { enumerable: true, get: function () { return randomness_module_1.Random; } });
-/** Utilities / helpers to export */
-var sts_assume_role_helper_util_1 = require("./aws-sdk-module/sts-helper/sts-assume-role-helper.util");
-Object.defineProperty(exports, "assumeThisRole", { enumerable: true, get: function () { return sts_assume_role_helper_util_1.assumeThisRole; } });
+exports.StsHelper = exports.SecretsManagerHelper = exports.S3Helper = exports.Random = exports.DateHelper = exports.ConsoleLog = void 0;
+/** Helpers / Psudo Modules */
+exports.ConsoleLog = __importStar(require("./console-log-helper/console-log.exports"));
+exports.DateHelper = __importStar(require("./date-time-helper/date-time-helper.exports"));
+exports.Random = __importStar(require("./randomness-helper/randomness.exports"));
+exports.S3Helper = __importStar(require("./aws-sdk-helpers/s3-helper/s3-helper.exports"));
+exports.SecretsManagerHelper = __importStar(require("./aws-sdk-helpers/secretsmanager-helper/secretsmanager.exports"));
+exports.StsHelper = __importStar(require("./aws-sdk-helpers/sts-helper/sts.exports"));
 //# sourceMappingURL=index.js.map

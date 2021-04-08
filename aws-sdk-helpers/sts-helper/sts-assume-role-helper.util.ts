@@ -1,5 +1,4 @@
 import { STSClient, AssumeRoleCommand } from '@aws-sdk/client-sts'
-import { ConsoleLog } from '../../console-log-module/console-log.module'
 
 export interface AssumeRoleOutput {
   AccessKeyId: string | undefined

@@ -4,7 +4,7 @@
   "description": "Common things needed across typescript lambda functions",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest tests/",
     "watch": "tsc -w"
   },
   "author": "David Sheffield <jeremiah.sheffield@gmail.com>",

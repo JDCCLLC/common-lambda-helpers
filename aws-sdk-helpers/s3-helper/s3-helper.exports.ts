@@ -1,0 +1,1 @@
+export { getBucketFromS3Url } from './get-bucket-from-s3-uri.util'
