@@ -11,4 +11,8 @@ export {
   LambdaReturn,
 } from './interfaces/lambda-return.interface'
 
+export {
+  SfnLambdaReturn,
+} from './interfaces/step-function-lambda-return.interface'
+
 
