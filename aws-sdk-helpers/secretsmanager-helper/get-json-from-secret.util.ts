@@ -12,11 +12,12 @@ export async function getJsonFromSecret(props: getJsonFromSecretInput): Promise<
   }))
   return new Promise(function(resolve, reject) {
     if (secretResp.SecretString) {
+      ConsoleLog.logObj(`secretResp.SecretString`, secretResp.SecretString)
       try {
         let ssAsObj = JSON.parse(secretResp.SecretString)
         resolve(ssAsObj)
       } catch(err) {
-        ConsoleLog.logObj(`unable to PRASE secret as JSON`, err)
+        ConsoleLog.logObj(`unable to PARSE secret as JSON`, err)
         reject(err)
       }
     } else {
