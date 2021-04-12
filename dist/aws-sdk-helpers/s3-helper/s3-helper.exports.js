@@ -11,6 +11,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./get-bucket-from-s3-uri.util"), exports);
-__exportStar(require("./get-json-from-s3.util"), exports);
+__exportStar(require("./get-parsed-json-from-s3.util"), exports);
 __exportStar(require("./get-key-from-s3-uri.util"), exports);
+__exportStar(require("./get-string-from-s3-object.util"), exports);
 //# sourceMappingURL=s3-helper.exports.js.map

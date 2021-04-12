@@ -1,12 +1,12 @@
 import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
 
-interface getJsonFromS3Input {
+interface getStringFromS3Input {
   bucketName: string,
   key: string,
 }
 
-export async function getJsonFromS3(
-  props: getJsonFromS3Input
+export async function getStringFromS3Object(
+  props: getStringFromS3Input
 ): Promise<any> {
   // get file from s3
   let s3Client = new S3Client({})
@@ -26,7 +26,7 @@ export async function getJsonFromS3(
             });
             item.on('end', function () {
               try {
-                resolve(JSON.parse(dataAsStr));
+                resolve(dataAsStr);
               } catch(err) {
                 reject(err)
               }
