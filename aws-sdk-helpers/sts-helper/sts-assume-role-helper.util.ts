@@ -1,4 +1,4 @@
-import { STSClient, AssumeRoleCommand } from '@aws-sdk/client-sts'
+import { STSClient, AssumeRoleCommand, Credentials } from '@aws-sdk/client-sts'
 
 export interface AssumeRoleOutput {
   AccessKeyId: string | undefined
@@ -7,7 +7,7 @@ export interface AssumeRoleOutput {
   AwsRegion: string
 }
 
-export async function assumeThisRole(roleArn: string, awsRegion?: string): Promise<AssumeRoleOutput> {
+export async function assumeThisRole(roleArn: string, awsRegion?: string): Promise<Credentials> {
   if (awsRegion == undefined) {
     awsRegion = 'us-east-1'
   }
@@ -20,15 +20,16 @@ export async function assumeThisRole(roleArn: string, awsRegion?: string): Promi
   }))
   // ConsoleLog.logObj(`stsResp`, stsResp)
   if (stsResp.Credentials) {
-    process.env.AWS_ACCESS_KEY_ID = stsResp.Credentials.AccessKeyId
-    process.env.AWS_SECRET_ACCESS_KEY = stsResp.Credentials.SecretAccessKey
-    process.env.AWS_SESSION_TOKEN = stsResp.Credentials.SessionToken
-    return Promise.resolve({
-      AccessKeyId: stsResp.Credentials.AccessKeyId,
-      SecretAccessKey: stsResp.Credentials.SecretAccessKey,
-      SessionToken: stsResp.Credentials.SessionToken,
-      AwsRegion: awsRegion,
-    })
+    // process.env.AWS_ACCESS_KEY_ID = stsResp.Credentials.AccessKeyId
+    // process.env.AWS_SECRET_ACCESS_KEY = stsResp.Credentials.SecretAccessKey
+    // process.env.AWS_SESSION_TOKEN = stsResp.Credentials.SessionToken
+    // return Promise.resolve({
+    //   AccessKeyId: stsResp.Credentials.AccessKeyId,
+    //   SecretAccessKey: stsResp.Credentials.SecretAccessKey,
+    //   SessionToken: stsResp.Credentials.SessionToken,
+    //   AwsRegion: awsRegion,
+    // })
+    return Promise.resolve(stsResp.Credentials)
   } else {
     return Promise.reject('unable to assume role')
   }
