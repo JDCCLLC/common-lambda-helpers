@@ -24,7 +24,16 @@ async function assumeThisRole(roleArn, awsRegion) {
         //   SessionToken: stsResp.Credentials.SessionToken,
         //   AwsRegion: awsRegion,
         // })
-        return Promise.resolve(stsResp.Credentials);
+        if (stsResp.Credentials) {
+            return Promise.resolve({
+                accessKeyId: stsResp.Credentials.AccessKeyId || 'unknown',
+                secretAccessKey: stsResp.Credentials.SecretAccessKey || 'unknown',
+                sessionToken: stsResp.Credentials.SessionToken,
+            });
+        }
+        else {
+            return Promise.reject('unable to get credentials');
+        }
     }
     else {
         return Promise.reject('unable to assume role');

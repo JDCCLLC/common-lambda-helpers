@@ -1,4 +1,6 @@
-import { STSClient, AssumeRoleCommand, Credentials } from '@aws-sdk/client-sts'
+import { RestoreObjectCommand } from '@aws-sdk/client-s3'
+import { STSClient, AssumeRoleCommand } from '@aws-sdk/client-sts'
+import { Credentials, Provider } from '@aws-sdk/types'
 
 export interface AssumeRoleOutput {
   AccessKeyId: string | undefined
@@ -29,7 +31,16 @@ export async function assumeThisRole(roleArn: string, awsRegion?: string): Promi
     //   SessionToken: stsResp.Credentials.SessionToken,
     //   AwsRegion: awsRegion,
     // })
-    return Promise.resolve(stsResp.Credentials)
+    if (stsResp.Credentials) {
+      return Promise.resolve({
+        accessKeyId: stsResp.Credentials.AccessKeyId || 'unknown',
+        secretAccessKey: stsResp.Credentials.SecretAccessKey || 'unknown',
+        sessionToken: stsResp.Credentials.SessionToken,
+      })
+    } else {
+      return Promise.reject('unable to get credentials')
+    }
+    
   } else {
     return Promise.reject('unable to assume role')
   }
