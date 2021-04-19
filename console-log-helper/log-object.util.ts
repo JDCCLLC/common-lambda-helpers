@@ -5,8 +5,12 @@ export function logObj(
 ): void {
   console.log(`${text}: `)
   try {
-    let objAsJson = JSON.stringify(obj,null,2)
-    console.log(objAsJson)
+    if (logAsJson == true) {
+      let objAsJson = JSON.stringify(obj,null,2)
+      console.log(objAsJson)
+    } else {
+      console.log(obj)
+    }
   } catch(err) {
     console.log(obj)
     console.log(`could not JSON.stringify object: ${text}`)
