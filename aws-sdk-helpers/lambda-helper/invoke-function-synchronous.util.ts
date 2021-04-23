@@ -1,15 +1,22 @@
 import { InvokeCommand, InvokeCommandInput, LambdaClient } from '@aws-sdk/client-lambda'
+import { Credentials } from '@aws-sdk/types';
 import { ConsoleLog } from '../..';
 
 export interface InvokeFunctionSynchronousInput {
   eventObj: any
   functionName: string // name or arn
+  lambdaClientCredentials?: Credentials
 }
 
 export async function invokeFunctionSynchronous(
   input: InvokeFunctionSynchronousInput
 ): Promise<any> {
   let lambdaClient = new LambdaClient({})
+  if (input.lambdaClientCredentials != undefined) {
+    lambdaClient = new LambdaClient({
+      credentials: input.lambdaClientCredentials
+    })
+  }
 
   var invokeParams: InvokeCommandInput = {
     FunctionName: input.functionName,

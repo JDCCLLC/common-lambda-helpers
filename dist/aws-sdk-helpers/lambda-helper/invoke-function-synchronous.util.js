@@ -5,6 +5,11 @@ const client_lambda_1 = require("@aws-sdk/client-lambda");
 const __1 = require("../..");
 async function invokeFunctionSynchronous(input) {
     let lambdaClient = new client_lambda_1.LambdaClient({});
+    if (input.lambdaClientCredentials != undefined) {
+        lambdaClient = new client_lambda_1.LambdaClient({
+            credentials: input.lambdaClientCredentials
+        });
+    }
     var invokeParams = {
         FunctionName: input.functionName,
         LogType: 'None',
