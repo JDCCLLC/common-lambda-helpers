@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.assumeRoleTest = void 0;
+exports.roleAssumer = void 0;
 const client_sts_1 = require("@aws-sdk/client-sts");
 /**
  * Role assumer that you can use when you need to use the SDK v3 with a named
  * CLI profile that assumes a role.
  */
-async function assumeRoleTest(sourceCreds, params) {
+async function roleAssumer(sourceCreds, params) {
     let stsClient = new client_sts_1.STSClient({
         credentials: sourceCreds
     });
@@ -23,5 +23,5 @@ async function assumeRoleTest(sourceCreds, params) {
         return Promise.reject(`could not assume role`);
     }
 }
-exports.assumeRoleTest = assumeRoleTest;
+exports.roleAssumer = roleAssumer;
 //# sourceMappingURL=sts-role-assumer-for-named-profiles.util.js.map
