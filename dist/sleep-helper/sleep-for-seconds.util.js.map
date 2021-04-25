@@ -1,0 +1,1 @@
+{"version":3,"file":"sleep-for-seconds.util.js","sourceRoot":"","sources":["../../sleep-helper/sleep-for-seconds.util.ts"],"names":[],"mappings":";;;AAAA,0BAA+B;AAExB,KAAK,UAAU,eAAe,CAAC,OAAe;IACnD,cAAU,CAAC,GAAG,CAAC,gBAAgB,OAAO,aAAa,CAAC,CAAA;IACpD,OAAO,IAAI,OAAO,CAAC,OAAO,CAAC,EAAE,CAAC,UAAU,CAAC,OAAO,EAAE,CAAC,OAAO,CAAC,CAAC,CAAC,CAAA;AAC/D,CAAC;AAHD,0CAGC"}
