@@ -1,6 +1,6 @@
 {
   "name": "@dksheffield/common-lambda-helpers",
-  "version": "3.22.0",
+  "version": "3.23.0",
   "description": "Common things needed across typescript lambda functions",
   "main": "./dist/index.js",
   "scripts": {
