@@ -12,12 +12,13 @@ async function recurisveScanDynamo(input) {
     if (input.AwsRegion == undefined) {
         input.AwsRegion == 'us-east-1';
     }
+    __1.ConsoleLog.logObj(`input.AwsRegion`, input.AwsRegion);
     let dynamoClient = new client_dynamodb_1.DynamoDBClient({
         region: input.AwsRegion
     });
-    if (input.CredentialProvider != undefined) {
+    if (input.Creds != undefined) {
         dynamoClient = new client_dynamodb_1.DynamoDBClient({
-            credentials: input.CredentialProvider,
+            credentials: input.Creds,
             region: input.AwsRegion
         });
     }

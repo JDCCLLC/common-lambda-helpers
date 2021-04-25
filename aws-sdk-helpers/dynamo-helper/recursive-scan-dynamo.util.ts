@@ -7,7 +7,7 @@ interface RecursiveScanInput {
   DynamoScanInput: ScanInput
   TotalMaxResultsToReturn?: number // the max number of items you want to return
   ReturnDynamoJson?: boolean // return normal object or dynamo marshalled object
-  CredentialProvider?: CredentialProvider
+  Creds?: CredentialProvider
   AwsRegion?: string
 }
 
@@ -19,12 +19,13 @@ export async function recurisveScanDynamo(input: RecursiveScanInput): Promise<an
   if (input.AwsRegion == undefined) {
     input.AwsRegion == 'us-east-1'
   }
+  ConsoleLog.logObj(`input.AwsRegion`, input.AwsRegion)
   let dynamoClient = new DynamoDBClient({
     region: input.AwsRegion
   })
-  if (input.CredentialProvider != undefined) {
+  if (input.Creds != undefined) {
     dynamoClient = new DynamoDBClient({
-      credentials: input.CredentialProvider,
+      credentials: input.Creds,
       region: input.AwsRegion
     })
   }
