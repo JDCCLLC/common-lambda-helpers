@@ -4,6 +4,8 @@ import { Credentials } from '@aws-sdk/types'
 /**
  * Role assumer that you can use when you need to use the SDK v3 with a named 
  * CLI profile that assumes a role.
+ * 
+ * Important, you need your [default] profile in the config file to have a region.
  */
  export async function roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
   let stsClient = new STSClient({

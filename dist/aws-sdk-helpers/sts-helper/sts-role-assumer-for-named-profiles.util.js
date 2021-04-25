@@ -5,6 +5,8 @@ const client_sts_1 = require("@aws-sdk/client-sts");
 /**
  * Role assumer that you can use when you need to use the SDK v3 with a named
  * CLI profile that assumes a role.
+ *
+ * Important, you need your [default] profile in the config file to have a region.
  */
 async function roleAssumer(sourceCreds, params) {
     let stsClient = new client_sts_1.STSClient({

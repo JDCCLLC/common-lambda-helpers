@@ -9,7 +9,18 @@ async function recurisveScanDynamo(input) {
     if (input.TotalMaxResultsToReturn == undefined) {
         input.TotalMaxResultsToReturn = 3573573573573573573573573573; // a big number
     }
-    let dynamoClient = new client_dynamodb_1.DynamoDBClient({});
+    if (input.AwsRegion == undefined) {
+        input.AwsRegion == 'us-east-1';
+    }
+    let dynamoClient = new client_dynamodb_1.DynamoDBClient({
+        region: input.AwsRegion
+    });
+    if (input.CredentialProvider != undefined) {
+        dynamoClient = new client_dynamodb_1.DynamoDBClient({
+            credentials: input.CredentialProvider,
+            region: input.AwsRegion
+        });
+    }
     let ourContinuationToken = undefined;
     let ourInput = input.DynamoScanInput;
     let sdkCount = 0;
