@@ -10,7 +10,7 @@ async function recurisveScanDynamo(input) {
         input.TotalMaxResultsToReturn = 3573573573573573573573573573; // a big number
     }
     if (input.AwsRegion == undefined) {
-        input.AwsRegion == 'us-east-1';
+        input.AwsRegion = 'us-east-1';
     }
     __1.ConsoleLog.logObj(`input.AwsRegion`, input.AwsRegion);
     let dynamoClient = new client_dynamodb_1.DynamoDBClient({
