@@ -4,7 +4,18 @@ exports.getStringFromS3Object = void 0;
 const client_s3_1 = require("@aws-sdk/client-s3");
 async function getStringFromS3Object(props) {
     // get file from s3
-    let s3Client = new client_s3_1.S3Client({});
+    if (props.region == undefined) {
+        props.region = 'us-east-1';
+    }
+    let s3Client = new client_s3_1.S3Client({
+        region: props.region
+    });
+    if (props.credentials != undefined) {
+        s3Client = new client_s3_1.S3Client({
+            region: props.region,
+            credentials: props.credentials
+        });
+    }
     let getObjResp = await s3Client.send(new client_s3_1.GetObjectCommand({
         Bucket: props.bucketName,
         Key: props.key,
