@@ -3,13 +3,16 @@ import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
 interface getParsedJsonFromS3Input {
   bucketName: string,
   key: string,
+  s3Client?: S3Client,
 }
 
 export async function getParsedJsonFromS3(
   props: getParsedJsonFromS3Input
 ): Promise<any> {
+  
+  let s3Client = props.s3Client || new S3Client({})
+  
   // get file from s3
-  let s3Client = new S3Client({})
   let getObjResp = await s3Client.send(new GetObjectCommand({
     Bucket: props.bucketName,
     Key: props.key,
