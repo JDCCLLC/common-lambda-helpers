@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getParsedJsonFromS3 = void 0;
 const client_s3_1 = require("@aws-sdk/client-s3");
 async function getParsedJsonFromS3(props) {
+    let s3Client = props.s3Client || new client_s3_1.S3Client({});
     // get file from s3
-    let s3Client = new client_s3_1.S3Client({});
     let getObjResp = await s3Client.send(new client_s3_1.GetObjectCommand({
         Bucket: props.bucketName,
         Key: props.key,
