@@ -4,6 +4,7 @@ import {
   PutObjectCommandOutput,
   S3Client
 } from "@aws-sdk/client-s3";
+import { ConsoleLog } from "../..";
 
 interface putStrAsS3ObjInput {
   bucketName: string,
@@ -25,6 +26,12 @@ export async function putStrAsS3Obj(
     ServerSideEncryption: "AES256"
   };
 
-  return await s3Client.send(new PutObjectCommand(s3PutParams))
+  try {
+    let s3Resp = await s3Client.send(new PutObjectCommand(s3PutParams))
+    return Promise.resolve(s3Resp)
+  } catch(err) {
+    ConsoleLog.logObj(`error putting to s3`, err)
+    return Promise.reject(err)
+  }
   
 }
