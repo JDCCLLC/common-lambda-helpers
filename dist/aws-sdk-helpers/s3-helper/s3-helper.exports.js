@@ -14,5 +14,6 @@ __exportStar(require("./get-bucket-from-s3-uri.util"), exports);
 __exportStar(require("./get-parsed-json-from-s3.util"), exports);
 __exportStar(require("./get-key-from-s3-uri.util"), exports);
 __exportStar(require("./get-string-from-s3-object.util"), exports);
+__exportStar(require("./put-str-as-s3-obj.util"), exports);
 __exportStar(require("./recursive-list-objects-from-s3.util"), exports);
 //# sourceMappingURL=s3-helper.exports.js.map
