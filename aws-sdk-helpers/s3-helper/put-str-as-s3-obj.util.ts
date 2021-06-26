@@ -26,12 +26,20 @@ export async function putStrAsS3Obj(
     ServerSideEncryption: "AES256"
   };
 
+  let s3Resp: PutObjectCommandOutput | undefined = undefined
   try {
-    let s3Resp = await s3Client.send(new PutObjectCommand(s3PutParams))
-    return Promise.resolve(s3Resp)
+    s3Resp = await s3Client.send(new PutObjectCommand(s3PutParams))
   } catch(err) {
     ConsoleLog.logObj(`error putting to s3`, err)
-    return Promise.reject(err)
   }
+
+  return new Promise(function(resolve, reject) {
+    if (s3Resp != undefined) {
+      resolve(s3Resp)
+    } else {
+      reject(`error putting str to s3`)
+    }
+  })
+
   
 }
