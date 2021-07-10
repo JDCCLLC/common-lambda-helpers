@@ -7,6 +7,7 @@ export interface YyyyMmDdHhObj {
   month: string
   day: string
   hour: string
+  minute: string
 }
 export function getYyyyMmDdHhAsObj(jsDate: Date = new Date()): YyyyMmDdHhObj {
   let year = jsDate.getFullYear().toString()
@@ -23,10 +24,15 @@ export function getYyyyMmDdHhAsObj(jsDate: Date = new Date()): YyyyMmDdHhObj {
   if (hour.length == 1) {
     hour = "0" + hour
   }
+  let minute = jsDate.getMinutes().toString()
+  if (minute.length == 1) {
+    minute = "0" + minute
+  }
   return {
     year: year,
     month: month,
     day: day,
-    hour: hour
+    hour: hour,
+    minute: minute,
   }
 }

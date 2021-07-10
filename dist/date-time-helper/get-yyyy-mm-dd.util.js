@@ -20,11 +20,16 @@ function getYyyyMmDdHhAsObj(jsDate = new Date()) {
     if (hour.length == 1) {
         hour = "0" + hour;
     }
+    let minute = jsDate.getMinutes().toString();
+    if (minute.length == 1) {
+        minute = "0" + minute;
+    }
     return {
         year: year,
         month: month,
         day: day,
-        hour: hour
+        hour: hour,
+        minute: minute,
     };
 }
 exports.getYyyyMmDdHhAsObj = getYyyyMmDdHhAsObj;
