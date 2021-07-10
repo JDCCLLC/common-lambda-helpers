@@ -10,5 +10,6 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(require("./recursive-query-dynamo.util"), exports);
 __exportStar(require("./recursive-scan-dynamo.util"), exports);
 //# sourceMappingURL=dynamo-helper.exports.js.map
