@@ -16,7 +16,7 @@ test('get cognito app client access token', async () => {
         secretId: secretArn
     });
     // ConsoleLog.logObj(`resp`, resp)
-    let accessToken = await get_app_client_access_token_util_1.getAppClientAccessToken({
+    let accessToken = await (0, get_app_client_access_token_util_1.getAppClientAccessToken)({
         url: secretResp.token_url,
         app_client_id: secretResp.client_id,
         app_client_secret: secretResp.client_secret

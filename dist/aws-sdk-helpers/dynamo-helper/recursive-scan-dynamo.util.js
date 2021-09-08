@@ -59,7 +59,7 @@ async function recurisveScanDynamo(input) {
         // unmarshall
         let unmarshalledRet = [];
         for (let item of ret) {
-            unmarshalledRet.push(util_dynamodb_1.unmarshall(item));
+            unmarshalledRet.push((0, util_dynamodb_1.unmarshall)(item));
         }
         return unmarshalledRet;
     }
