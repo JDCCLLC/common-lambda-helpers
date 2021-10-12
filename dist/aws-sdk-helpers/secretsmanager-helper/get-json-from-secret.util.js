@@ -10,7 +10,9 @@ async function getJsonFromSecret(props) {
     }));
     return new Promise(function (resolve, reject) {
         if (secretResp.SecretString) {
-            index_1.ConsoleLog.logObj(`secretResp.SecretString`, secretResp.SecretString);
+            if (props.logSecretValues === true) {
+                index_1.ConsoleLog.logObj(`secretResp.SecretString`, secretResp.SecretString);
+            }
             try {
                 let ssAsObj = JSON.parse(secretResp.SecretString);
                 resolve(ssAsObj);

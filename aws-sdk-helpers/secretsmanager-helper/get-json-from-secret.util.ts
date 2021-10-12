@@ -3,6 +3,7 @@ import { ConsoleLog } from "../../index"
 
 interface getJsonFromSecretInput {
   secretId: string,
+  logSecretValues?: boolean
 }
 
 export async function getJsonFromSecret(props: getJsonFromSecretInput): Promise<any> {
@@ -12,7 +13,9 @@ export async function getJsonFromSecret(props: getJsonFromSecretInput): Promise<
   }))
   return new Promise(function(resolve, reject) {
     if (secretResp.SecretString) {
-      ConsoleLog.logObj(`secretResp.SecretString`, secretResp.SecretString)
+      if (props.logSecretValues === true) {
+        ConsoleLog.logObj(`secretResp.SecretString`, secretResp.SecretString)
+      }
       try {
         let ssAsObj = JSON.parse(secretResp.SecretString)
         resolve(ssAsObj)
