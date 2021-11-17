@@ -19,13 +19,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UuidHelper = exports.StsHelper = exports.SleepHelper = exports.SecretsManagerHelper = exports.S3Helper = exports.Random = exports.LambdaHelper = exports.DynamoHelper = exports.DateHelper = exports.CognitoHelper = exports.ConsoleLog = void 0;
+exports.UuidHelper = exports.StsHelper = exports.SleepHelper = exports.SecretsManagerHelper = exports.S3Helper = exports.Random = exports.MathHelper = exports.LambdaHelper = exports.DynamoHelper = exports.DateHelper = exports.CognitoHelper = exports.ConsoleLog = void 0;
 /** Helpers / Psudo Modules */
 exports.ConsoleLog = __importStar(require("./console-log-helper/console-log.exports"));
 exports.CognitoHelper = __importStar(require("./aws-sdk-helpers/cognito-helper/cognito-helper.exports"));
 exports.DateHelper = __importStar(require("./date-time-helper/date-time-helper.exports"));
 exports.DynamoHelper = __importStar(require("./aws-sdk-helpers/dynamo-helper/dynamo-helper.exports"));
 exports.LambdaHelper = __importStar(require("./aws-sdk-helpers/lambda-helper/lambda.exports"));
+exports.MathHelper = __importStar(require("./math-helper/math-helper.exports"));
 exports.Random = __importStar(require("./randomness-helper/randomness.exports"));
 exports.S3Helper = __importStar(require("./aws-sdk-helpers/s3-helper/s3-helper.exports"));
 exports.SecretsManagerHelper = __importStar(require("./aws-sdk-helpers/secretsmanager-helper/secretsmanager.exports"));

@@ -13,4 +13,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./get-js-date-from-adt-timestamp.util"), exports);
 __exportStar(require("./get-yyyy-mm-dd.util"), exports);
 __exportStar(require("./is-date.util"), exports);
+__exportStar(require("./get-week-number.util"), exports);
 //# sourceMappingURL=date-time-helper.exports.js.map
