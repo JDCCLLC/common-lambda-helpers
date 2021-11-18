@@ -1,6 +1,7 @@
 /** Helpers / Psudo Modules */
 export * as ConsoleLog from './console-log-helper/console-log.exports'
 export * as CognitoHelper from './aws-sdk-helpers/cognito-helper/cognito-helper.exports'
+export * as CsvHelper from './csv-helper/csv-helper.exports'
 export * as DateHelper from './date-time-helper/date-time-helper.exports'
 export * as DynamoHelper from './aws-sdk-helpers/dynamo-helper/dynamo-helper.exports'
 export * as LambdaHelper from './aws-sdk-helpers/lambda-helper/lambda.exports'
