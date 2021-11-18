@@ -1,0 +1,1 @@
+{"version":3,"file":"calculate-percent-gain.util.js","sourceRoot":"","sources":["../../math-helper/calculate-percent-gain.util.ts"],"names":[],"mappings":";;;AAAA,SAAgB,oBAAoB,CAAC,KAAa,EAAE,GAAW;IAC7D,IAAI,QAAQ,GAAG,GAAG,GAAG,KAAK,CAAA;IAC1B,IAAI,WAAW,GAAG,CAAC,QAAQ,GAAC,KAAK,CAAC,GAAG,GAAG,CAAA;IACxC,OAAO,WAAW,CAAA;AACpB,CAAC;AAJD,oDAIC"}
