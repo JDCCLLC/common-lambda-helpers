@@ -1,1 +1,0 @@
-{"version":3,"file":"get-avg.util.js","sourceRoot":"","sources":["../../math-helper/get-avg.util.ts"],"names":[],"mappings":";;;AAAA,SAAgB,UAAU,CAAC,OAAiB;IAC1C,IAAI,KAAK,GAAG,CAAC,CAAA;IACb,KAAK,IAAI,CAAC,IAAI,OAAO,EAAE;QACrB,KAAK,GAAG,KAAK,GAAG,CAAC,CAAA;KAClB;IACD,OAAO,KAAK,GAAC,OAAO,CAAC,MAAM,CAAA;AAC7B,CAAC;AAND,gCAMC"}
