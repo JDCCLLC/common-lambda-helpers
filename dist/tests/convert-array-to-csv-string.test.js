@@ -5,9 +5,9 @@ const convert_array_of_objs_to_csv_str_util_1 = require("../csv-helper/convert-a
 // jest -t 'convert array of objs to csv string'
 test('convert array of objs to csv string', () => {
     let arry = [
-        { 'field1': 'value1', 'field2': 'value2', 'field3': 'value3' },
-        { 'field1': 'line2 value1', 'field2': 'line2 value2', 'field3': 'line2 value3' },
-        { 'field1': 'line3 value1', 'field2': 'line3,value2,withcomma', 'field3': 'line3 value3' },
+        { 'field1': 'value1', 'field2': 'value2', 'field3': 23 },
+        { 'field1': 'line2 value1', 'field2': 'line2 value2', 'field3': 24 },
+        { 'field1': 'line3 value1', 'field2': 'line3,value2,withcomma', 'field3': 25 },
     ];
     let csvAsStr = (0, convert_array_of_objs_to_csv_str_util_1.ConvertArrayOfObjsTOCsvStr)({ data: arry });
     __1.ConsoleLog.log(`csvAsStr: ${csvAsStr}`);

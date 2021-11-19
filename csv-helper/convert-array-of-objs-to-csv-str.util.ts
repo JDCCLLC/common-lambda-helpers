@@ -41,7 +41,9 @@ export function ConvertArrayOfObjsTOCsvStr(input: ConvertArrayOfObjsTOCsvStrInpu
         // loop through headers
         for (let h = 0; h < headers.length; h++) {
           let value = i[headers[h]]
-          value = value.replace(/,/g, " ")
+          if (typeof value === 'string' || value instanceof String) {
+            value = value.replace(/,/g, " ")
+          }
           if (value !== undefined) {
             ret += `${value}`
           }
