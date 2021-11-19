@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConvertArrayOfObjsTOCsvStr = void 0;
+const __1 = require("..");
 function ConvertArrayOfObjsTOCsvStr(input) {
     if (input.stripCommasFromValues === undefined) {
         input.stripCommasFromValues = true;
@@ -34,21 +35,27 @@ function ConvertArrayOfObjsTOCsvStr(input) {
     }
     // write body
     for (let i of input.data) {
-        if (i) {
-            // loop through headers
-            for (let h = 0; h < headers.length; h++) {
-                let value = i[headers[h]];
-                value = value.replace(/,/g, " ");
-                if (value !== undefined) {
-                    ret += `${value}`;
-                }
-                if (h < (headers.length - 1)) {
-                    ret += `,`;
-                }
-                else {
-                    ret += `\n`;
+        try {
+            if (i) {
+                // loop through headers
+                for (let h = 0; h < headers.length; h++) {
+                    let value = i[headers[h]];
+                    value = value.replace(/,/g, " ");
+                    if (value !== undefined) {
+                        ret += `${value}`;
+                    }
+                    if (h < (headers.length - 1)) {
+                        ret += `,`;
+                    }
+                    else {
+                        ret += `\n`;
+                    }
                 }
             }
+        }
+        catch (err) {
+            __1.ConsoleLog.logObj(`error adding item to CSV`, err);
+            __1.ConsoleLog.logObj(`item with error`, i);
         }
     }
     // ConsoleLog.log(`ret: ${ret}`)
