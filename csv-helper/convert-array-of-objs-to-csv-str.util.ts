@@ -12,12 +12,14 @@ export function ConvertArrayOfObjsTOCsvStr(input: ConvertArrayOfObjsTOCsvStrInpu
   // get headers
   let headers: string[] = []
   for (let i of input.data) {
-    let objKeys = Object.keys(i)
-    for (let k of objKeys) {
-      if (headers.includes(k)) {
-        // 
-      } else {
-        headers.push(k)
+    if (i) {
+      let objKeys = Object.keys(i)
+      for (let k of objKeys) {
+        if (headers.includes(k)) {
+          // 
+        } else {
+          headers.push(k)
+        }
       }
     }
   }
@@ -34,17 +36,19 @@ export function ConvertArrayOfObjsTOCsvStr(input: ConvertArrayOfObjsTOCsvStrInpu
   
   // write body
   for (let i of input.data) {
-    // loop through headers
-    for (let h = 0; h < headers.length; h++) {
-      let value = i[headers[h]]
-      value = value.replace(/,/g, " ")
-      if (value !== undefined) {
-        ret += `${value}`
-      }
-      if (h < (headers.length-1)) {
-        ret += `,`
-      } else {
-        ret += `\n`
+    if (i) {
+      // loop through headers
+      for (let h = 0; h < headers.length; h++) {
+        let value = i[headers[h]]
+        value = value.replace(/,/g, " ")
+        if (value !== undefined) {
+          ret += `${value}`
+        }
+        if (h < (headers.length-1)) {
+          ret += `,`
+        } else {
+          ret += `\n`
+        }
       }
     }
   }
