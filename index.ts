@@ -10,6 +10,7 @@ export * as Random from './randomness-helper/randomness.exports'
 export * as S3Helper from './aws-sdk-helpers/s3-helper/s3-helper.exports'
 export * as SecretsManagerHelper from './aws-sdk-helpers/secretsmanager-helper/secretsmanager.exports'
 export * as SleepHelper from './sleep-helper/sleep.exports'
+export * as SqsHelper from './aws-sdk-helpers/sqs-helper/sqs-helper.exports'
 export * as StsHelper from './aws-sdk-helpers/sts-helper/sts.exports'
 export * as UuidHelper from './uuid-helper/uuid-helper.exports'
 
