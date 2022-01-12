@@ -10,6 +10,9 @@ async function getStringFromS3Object(props) {
     let s3Client = new client_s3_1.S3Client({
         region: props.region
     });
+    if (props.s3Client) {
+        s3Client = props.s3Client;
+    }
     if (props.credentials != undefined) {
         s3Client = new client_s3_1.S3Client({
             region: props.region,

@@ -6,6 +6,7 @@ interface getStringFromS3Input {
   key: string,
   credentials?: Credentials,
   region?: string
+  s3Client?: S3Client
 }
 
 export async function getStringFromS3Object(
@@ -18,6 +19,9 @@ export async function getStringFromS3Object(
   let s3Client = new S3Client({
     region: props.region
   })
+  if (props.s3Client) {
+    s3Client = props.s3Client
+  }
   if (props.credentials != undefined) {
     s3Client = new S3Client({
       region: props.region,
