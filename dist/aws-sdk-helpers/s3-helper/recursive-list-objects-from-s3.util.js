@@ -7,7 +7,7 @@ async function recursiveListObjectsFromS3(input) {
     let ret = [];
     let ourContiuationToken = undefined;
     let s3Input = input;
-    let s3Client = new client_s3_1.S3Client({});
+    let s3Client = input.S3Client || new client_s3_1.S3Client({});
     let sdkCount = 0;
     do {
         if (ourContiuationToken != undefined) {

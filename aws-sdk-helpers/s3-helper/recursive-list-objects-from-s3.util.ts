@@ -6,14 +6,18 @@ import {
 } from '@aws-sdk/client-s3'
 import { ConsoleLog } from '../..'
 
+export interface recursiveListObjectsFromS3Input extends ListObjectsV2CommandInput {
+  S3Client?: S3Client
+}
+
 export async function recursiveListObjectsFromS3(
-  input: ListObjectsV2CommandInput
+  input: recursiveListObjectsFromS3Input
 ): Promise<_Object[]> {
   let ret: _Object[] = []
   let ourContiuationToken: string | undefined = undefined
   let s3Input: ListObjectsV2CommandInput = input
 
-  let s3Client = new S3Client({})
+  let s3Client = input.S3Client || new S3Client({})
   let sdkCount = 0
   do {
     if (ourContiuationToken != undefined) {
