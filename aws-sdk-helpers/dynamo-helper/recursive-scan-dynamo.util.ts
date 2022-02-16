@@ -3,7 +3,7 @@ import { CredentialProvider } from '@aws-sdk/types'
 import { unmarshall } from "@aws-sdk/util-dynamodb"
 import { ConsoleLog } from '../..'
 
-interface RecursiveScanInput {
+export interface RecursiveScanInput {
   DynamoScanInput: ScanInput
   TotalMaxResultsToReturn?: number // the max number of items you want to return
   ReturnDynamoJson?: boolean // return normal object or dynamo marshalled object
