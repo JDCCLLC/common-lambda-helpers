@@ -11,5 +11,4 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./sts-assume-role-helper.util"), exports);
-__exportStar(require("./sts-role-assumer-for-named-profiles.util"), exports);
 //# sourceMappingURL=sts.exports.js.map
