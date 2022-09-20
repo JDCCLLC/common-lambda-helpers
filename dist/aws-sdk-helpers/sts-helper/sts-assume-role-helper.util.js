@@ -18,7 +18,7 @@ async function assumeThisRole(roleArn, awsRegion, setEnvValues) {
     }));
     // ConsoleLog.logObj(`stsResp`, stsResp)
     if (stsResp.Credentials) {
-        if (setEnvValues == true) {
+        if (setEnvValues) {
             process.env.AWS_ACCESS_KEY_ID = stsResp.Credentials.AccessKeyId;
             process.env.AWS_SECRET_ACCESS_KEY = stsResp.Credentials.SecretAccessKey;
             process.env.AWS_SESSION_TOKEN = stsResp.Credentials.SessionToken;
