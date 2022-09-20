@@ -1,6 +1,5 @@
-import { RestoreObjectCommand } from '@aws-sdk/client-s3'
 import { STSClient, AssumeRoleCommand } from '@aws-sdk/client-sts'
-import { Credentials, Provider } from '@aws-sdk/types'
+import { Credentials } from '@aws-sdk/types'
 
 export interface AssumeRoleOutput {
   AccessKeyId: string | undefined
@@ -25,7 +24,7 @@ export async function assumeThisRole(roleArn: string, awsRegion?: string, setEnv
   }))
   // ConsoleLog.logObj(`stsResp`, stsResp)
   if (stsResp.Credentials) {
-    if (setEnvValues == true) {
+    if (setEnvValues) {
       process.env.AWS_ACCESS_KEY_ID = stsResp.Credentials.AccessKeyId
       process.env.AWS_SECRET_ACCESS_KEY = stsResp.Credentials.SecretAccessKey
       process.env.AWS_SESSION_TOKEN = stsResp.Credentials.SessionToken
